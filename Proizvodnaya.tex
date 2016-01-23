@@ -1,0 +1,73 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[cp1251]{inputenc}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[mathscr]{eucal}
+\usepackage[russian]{babel}
+\usepackage{titlesec}
+%\usepackage{mathtools}
+
+% Поля и т.п.
+\pagestyle{plain}
+\usepackage[margin=2cm,centering]{geometry}
+
+%==========================================================
+% буквы для N,Z,R,C
+\newcommand\NN{{\mathbb N}}
+\newcommand\ZZ{{\mathbb Z}}
+\newcommand\RR{{\mathbb R}}
+\newcommand\CC{{\mathbb C}}
+
+% Модуль и норма
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\renewcommand*\thesubsection{\arabic{subsection}}
+\renewcommand{\baselinestretch}{1.25}
+% Если нужны подзаголовки, используйте команды \subsection и \subsubsection
+
+\begin{document}
+{\huge \bf{Производные}}
+\subsection{Определения}
+Пусть область определения функции $f$ включает окрестность точки $x_0$. Функция $f$ называется {\bf дифференцируемой} в точке $x_0$, если существует предел $ \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} $(называемый производной функции $f$ в точке $x_0$). Обозначения: $\frac{df}{dx}(x_0)$, $f'(x_0)$.\\
+Функция называется {\bf дифференцируемой на множестве $M$}, если она дифференцируема в каждой точке этого множества. \\
+В этом случае функция $g : M \to \RR$, $g(x)= f'(x)$ называется {\bf производной} функции $f$ на множестве M. Обозначения: $\frac{df}{dx}$, $f'$.
+
+\subsection{Упражнения}
+\subsubsection{Найти производную функции  $\mathbf{f(x) = a}$, $\mathbf{a \in \RR}$.}
+{\bf Решение.} $\lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} = \lim_{x \to x_0} \frac{a - a}{x - x_0} = \lim_{x \to x_0} \frac{0}{x - x_0} = 0$\\
+{\bf Ответ.} $f'(x) = 0$
+
+\subsubsection{Найти производную функции $\mathbf{f(x) = x}$.}
+{\bf Решение.} $\lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} = \lim_{x \to x_0} \frac{x - x_0}{x - x_0} = 1$\\
+{\bf Ответ.} $f'(x) = 1$
+
+\subsubsection{Найти производную функции $\mathbf{f(x) = x^2}$.}
+{\bf Решение.} $\lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} = \lim_{x \to x_0} \frac{x^2 - x_0^2}{x - x_0} = \lim_{x \to x_0} \frac{(x - x_0)(x + x_0)}{x - x_0} = \lim_{x \to x_0} x + x_0 = 2x_0$\\
+{\bf Ответ.} $f'(x) = 2x$
+
+\subsubsection{Найти производную функции $\mathbf{f(x) = sin(x)}$.}
+{\bf Решение.} $\lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} = \lim_{x \to x_0} \frac{sin(x) - sin(x_0)}{x - x_0} = \lim_{x \to x_0} \frac{2sin(\frac{x - x_0}{2})cos(\frac{x + x_0}{2})}{x - x_0} = \lim_{x \to x_0} \frac{sin(\frac{x - x_0}{2})cos(\frac{x + x_0}{2})}{\frac{x - x_0}{2}}$
+Так как $\frac{x - x_0}{2} \to 0$ при $x \to x_0$, то по теореме о первом замечательном пределе: $$\lim_{x \to x_0} \frac{sin(\frac{x - x_0}{2})}{\frac{x - x_0}{2}} = 1$$
+Значит, имеем:
+$$\lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} = \lim_{x \to x_0} cos(\frac{x + x_0}{2}) = cos(x_0)$$\\
+{\bf Ответ.} $f'(x) = cos(x)$
+
+\subsubsection{Найти производную функции $\mathbf{f(x) = cos(x)}$.}
+{\bf Решение.}
+$\lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} = \lim_{x \to x_0} \frac{cos(x) - cos(x_0)}{x - x_0} = \lim_{x \to x_0} \frac{-2sin(\frac{x - x_0}{2})sin(\frac{x + x_0}{2})}{x - x_0} = \lim_{x \to x_0} \frac{-sin(\frac{x - x_0}{2})sin(\frac{x + x_0}{2})}{\frac{x - x_0}{2}}$
+Так как $\frac{x - x_0}{2} \to 0$ при $x \to x_0$, то по теореме о первом замечательном пределе: $$\lim_{x \to x_0} \frac{sin(\frac{x - x_0}{2})}{\frac{x - x_0}{2}} = 1$$
+Значит, имеем:
+$$\lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} = \lim_{x \to x_0} -sin(\frac{x + x_0}{2}) = -sin(x_0)$$\\
+{\bf Ответ.} $f'(x) = -sin(x)$
+
+%основные формулы дифференцирования функций
+
+\subsection{Определение}
+Пусть функция $f$ определена в окрестности точки $x_0$. Прямая K называется касательной к графику функции $f$ в точке $(x_0, f(x_0))$, если $\lim_{x \to x_0} \frac{\rho(x)}{x - x_0} = 0 $, где $\rho(x)$ — расстояние от точки $(x, f (x))$ до прямой K.
+\subsubsection{Пример}
+Рассмотрим график функции $f(x) = x^2 $ и докажем, что прямая $y = 0$ является касательной в точке $(0,0)$.\\
+Доказательство. Заметим, что расстояние от точки $(x, f (x))$ до прямой $y = 0$ равно $\rho(x) = f(x) = x^2$. Тогда 
+$$\lim_{x \to 0} \frac{\rho(x)}{x - 0} =  \lim_{x \to 0} \frac{x^2}{x} = \lim_{x \to 0} x = 0 $$
+\subsubsection{Свойство касательной}
+Пусть функция $f$ дифференцируема в точке $x_0$. Тогда прямая $y = f'(x_0) (x - x_0) + f(x_0)$ является касательной к графику $f$ в точке $(x_0, f(x_0))$.
+\end{document} 
